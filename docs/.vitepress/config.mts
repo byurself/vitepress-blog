@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/vitepress-blog/",
   title: "My Awesome Project",
   description: "A VitePress Site",
   // header标签里面插入的内容
@@ -51,7 +52,6 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/byurself' }
-    ],
-    base: "/vitepress-blog/",
+    ]
   }
 })
