@@ -30,3 +30,5 @@ features:
     details: 数据库学习笔记
 ---
 
+<confetti />
+<VisitorPanel />

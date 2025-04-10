@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,7 +7,13 @@ export default defineConfig({
   title: "My Awesome Project",
   description: "A VitePress Site",
   // header标签里面插入的内容
-  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
+  head: [
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+    ["script", {
+      src: "https://cloud.umami.is/script.js",
+      "data-website-id": "24f83e77-f0a9-4450-838d-fccfaff5144f"
+    }]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     // 网站的logo
@@ -15,6 +22,11 @@ export default defineConfig({
     outline: {
       level: [2, 6],
       label: "目录",
+    },
+    // 自定义上下页名
+    docFooter: {
+      prev: "上一页",
+      next: "下一页",
     },
     // 返回顶部label
     returnToTopLabel: "返回顶部",
@@ -25,7 +37,7 @@ export default defineConfig({
     // 页脚
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2025-present byu_rself",
+      copyright: `Copyright © 2025-${new Date().getFullYear()} byu_rself`,
     },
     // 文档的最后更新时间
     lastUpdated: {
@@ -53,5 +65,21 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/byurself' }
     ]
+  },
+  markdown: {
+    config(md) {
+      md.use(groupIconMdPlugin)
+    },
+  },
+  vite: {
+    plugins: [
+      groupIconVitePlugin({
+        // 自定义图标: https://iconify.design/
+        customIcon: {
+          'java': localIconLoader(import.meta.url, '../public/java.svg'),
+          'python': localIconLoader(import.meta.url, '../public/python.svg'),
+        },
+      })
+    ],
   }
 })

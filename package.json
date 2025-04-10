@@ -14,6 +14,15 @@
   "license": "ISC",
   "packageManager": "pnpm@10.7.1",
   "devDependencies": {
+    "@giscus/vue": "^3.1.1",
     "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "busuanzi.pure.js": "^1.0.3",
+    "canvas-confetti": "^1.9.3",
+    "viewerjs": "^1.11.7",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15",
+    "vitepress-plugin-group-icons": "^1.4.1",
+    "vitepress-plugin-image-viewer": "^1.1.6"
   }
 }
